@@ -5,7 +5,7 @@ import { createCard, updateCard } from "../../utils/api"
 const CardForm = ( { card, setCard } ) => {
 
   // Hook and variable to send user to View Deck
-  const herstory = useHistory()
+  const goBack = useHistory();
   const toParent = "/decks/" + card.deckId
 
   // Form change handler: uses state to edit current card object
@@ -27,7 +27,7 @@ const CardForm = ( { card, setCard } ) => {
     const abortController = new AbortController()
     const abortSignal = abortController.signal
     await cardSubmit(card, abortSignal)
-    herstory.push(toParent)
+    goBack.push(toParent)
   }
 
   return (

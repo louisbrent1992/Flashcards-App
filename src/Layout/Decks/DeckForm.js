@@ -13,7 +13,7 @@ const DeckForm = ( { deck } ) => {
 
   // Hook and conditional: called together to send user elsewhere
   // Sends user home if no deck id is present, otherwise sends them to View Deck
-  const herstory = useHistory()
+  const goBack = useHistory();
   const toParent = !deck.id? "/" : "/decks/" + deck.id
 
   // Form change handler: uses state to edit current deck object
@@ -35,7 +35,7 @@ const DeckForm = ( { deck } ) => {
     const abortController = new AbortController()
     const abortSignal = abortController.signal
     await deckSubmit(formDeck, abortSignal)
-    herstory.push(toParent)
+    goBack.push(toParent)
   }
 
   return (

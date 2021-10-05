@@ -6,15 +6,15 @@ import { deleteDeck } from "../../../../utils/api"
 const DeckInfo = ( { deck } ) => {
 
   // Hooks to send user elsewhere or keep them here
-  const herstory = useHistory()
+  const goBack = useHistory();
   const url = useRouteMatch().url
 
   // Dialog box: deletes deck and sends user home, or keeps deck and keeps user here
-  const deleteMeDaddy = async () => {
-    const confirmMeDaddy = "Delete this deck?"
-    const confirm = window.confirm(confirmMeDaddy)
+  const handleDelete = async () => {
+    const message = "Delete this deck?"
+    const confirm = window.confirm(message);
     confirm === true ? 
-    await deleteDeck(deck.id) && herstory.push("/") : herstory.push(url)
+    await deleteDeck(deck.id) && goBack.push("/") : goBack.push(url)
   }
 
   return (
@@ -41,7 +41,7 @@ const DeckInfo = ( { deck } ) => {
         </div>
         <div className="col">
           {/* Delete button */}
-          <button type="button" className="btn btn-danger" onClick={deleteMeDaddy}>Delete</button>
+          <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete</button>
         </div>
       </div>
     </div>    

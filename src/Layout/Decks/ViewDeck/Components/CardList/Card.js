@@ -6,16 +6,15 @@ import { deleteCard } from "../../../../../utils/api"
 const Card = ( { card } ) => {
 
   // Hooks to send user to View Deck
-  const herstory = useHistory()
+  const goBack = useHistory();
   const url = useRouteMatch().url
 
   // Dialog box: deletes card & keeps user on current screen, or keeps user on current screen
   const handleDelete = async () => {
-    const confirmMeDaddy = "Delete this card?"
-    const confirm = window.confirm(confirmMeDaddy)
+    const message = "Delete this card?"
+    const confirm = window.confirm(message)
     confirm === true ? 
-    await deleteCard(card.id) && herstory.push(url) : herstory.push(url)
-    window.location.reload()
+    await deleteCard(card.id) && goBack.push(url) : goBack.push(url);
   }
 
   return (
