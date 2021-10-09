@@ -26,7 +26,9 @@ A front-end web-application designed to help teachers create decks of flash card
 - React
 - Bootstrap 4
 
-## Getting started
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
