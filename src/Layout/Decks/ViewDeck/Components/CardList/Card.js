@@ -18,14 +18,13 @@ const Card = ( { card } ) => {
   }
 
   return (
-    <div className="card my-2">
-      <div className="container mt-2">
+    <div className="card container my-2">
+      <div className="mt-2 text-center">
         {/* Front text of card */}
-        <p className="text-left">{card.front}</p>
-      </div>
-      <div className="container">
+        <p>{card.front}</p>
+      
         {/* Back text of card */}
-        <p className="text-right">{card.back}</p>
+        <p>{card.back}</p>
       </div>
       {/* Edit button: sends user to card form */}
       <Link to={"/decks/" + card.deckId + "/cards/" + card.id + "/edit"}
