@@ -5,13 +5,18 @@ import { deleteDeck } from "../../../utils/api";
 
 const Deck = ({ deck }) => {
   // Hook to send user home
-  const goBack = useHistory();
+  const history = useHistory();
 
   // Delete handler: deletes deck and reloads DeckList, or sends user home
   const handleDelete = async () => {
     const message = "Delete this deck?";
     const confirm = window.confirm(message);
-    confirm === true ? await deleteDeck(deck.id) : goBack.push("/");
+    if (confirm === 'true') {
+      await deleteDeck(deck.id)
+      history.go('/');
+    } else {
+      history.go('/');
+    }
   };
 
   return (
